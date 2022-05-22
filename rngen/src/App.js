@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <Numbers randomNums={randomNums} />
+      <Numbers randomNums={randomNums} isGenNum={isGenNum} setRandomNums={setRandomNums} />
       <Controls setIsGenNum={setIsGenNum} isGenNum={isGenNum} setRandomNums={setRandomNums} randomNums={randomNums}/>
     </div>
   );

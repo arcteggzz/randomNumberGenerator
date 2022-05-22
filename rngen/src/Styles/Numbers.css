@@ -1,5 +1,8 @@
 .numbers{
     display: flex;
+    align-items: flex-start;
     background: rgb(143, 141, 141);
     min-height: 90vh;
+    flex-wrap: wrap;
+    gap: 10px;
 }

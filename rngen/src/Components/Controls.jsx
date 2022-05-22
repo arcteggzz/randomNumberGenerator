@@ -1,19 +1,14 @@
 import "../Styles/Controls.css"
 
-const Controls = ({isGenNum, setIsGenNum, randomNums, setRandomNums}) => {
+const Controls = ({setIsGenNum, isGenNum}) => {
     const startHandler = () => {
         setIsGenNum(true)
-        if (isGenNum){
-            setInterval (generateNumber, 1000)}
     }
 
     const stopHandler = () => {
         setIsGenNum(false)
     }
 
-    const generateNumber = () => {
-        setRandomNums([...randomNums, Math.floor(Math.random() * (100 - 1 + 1)) + 1])
-    }
     
     return (
         <div className="controls">
