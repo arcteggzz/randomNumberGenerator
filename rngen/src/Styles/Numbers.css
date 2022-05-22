@@ -1,0 +1,5 @@
+.numbers{
+    display: flex;
+    background: rgb(143, 141, 141);
+    min-height: 90vh;
+}
