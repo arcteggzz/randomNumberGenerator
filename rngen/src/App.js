@@ -1,16 +1,27 @@
 import './App.css';
-import Controls from './Components/Controls';
-import Numbers from './Components/Numbers';
-import { useState } from "react";
+import Number from './Components/Number';
 
 function App() {
-  const [isGenNum, setIsGenNum] = useState(false)
-  const [randomNums, setRandomNums] = useState([])
+  const genNumbers = () => {
+    const name = Math.floor(Math.random() * 100)
+    const red = Math.floor(Math.random() * 257)
+    const green = Math.floor(Math.random() * 257)
+    const blue = Math.floor(Math.random() * 257)
+    return (
+      <div className="">
+        <Number name={name} bgColour={`rgb(${red}, ${green}, ${blue})`}/>
+      </div>
+    )
+  }
+  
+  const functionCall = () => {
+    while (true){
+      setInterval(genNumbers, 2000)
+    }
+  }
 
   return (
     <div className="App">
-      <Numbers randomNums={randomNums} isGenNum={isGenNum} setRandomNums={setRandomNums} />
-      <Controls setIsGenNum={setIsGenNum} isGenNum={isGenNum} setRandomNums={setRandomNums} randomNums={randomNums}/>
     </div>
   );
 }
