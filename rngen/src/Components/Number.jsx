@@ -1,5 +1,11 @@
 
-const Number = ( {key, bgColour} ) => {
+const Number = ( {key} ) => {
+
+    const bgColour = `rgb(
+            ${Math.floor(Math.random() * 257)},
+            ${Math.floor(Math.random() * 257)},
+            ${Math.floor(Math.random() * 257)})`
+
     const NumberStyle = {
         display: "flex",
         flexDirection : "column",
