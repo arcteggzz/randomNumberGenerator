@@ -1,9 +1,8 @@
-import "../Styles/Number.css"
 
-const Number = ( {name} ) => {
+const Number = ( {key, num, hexcode} ) => {
     return (
-        <div className="number">
-            {name}
+        <div className="number" key={key}>
+            {num}
         </div>
     )
 }
