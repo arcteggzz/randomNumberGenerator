@@ -1,18 +1,30 @@
 import './App.css';
-import Controls from './Components/Controls';
-import Numbers from './Components/Numbers';
-import { useState } from "react";
+import Number from "./Components/Number"
+import {useEffect, useState } from 'react';
+
 
 function App() {
-  const [isGenNum, setIsGenNum] = useState(false)
-  const [randomNums, setRandomNums] = useState([])
+  const [numbers, setNumbers] = useState([]);
+
+  useEffect(()=>{
+    setTimeout(()=>{setNumbers(currentArray => [...currentArray, {
+      key: numbers.length,
+      bgColour: `rgb(
+        ${Math.floor(Math.random() * 257)},
+        ${Math.floor(Math.random() * 257)},
+        ${Math.floor(Math.random() * 257)})`,
+      }])}, 250)
+  })
 
   return (
     <div className="App">
-      <Numbers randomNums={randomNums} isGenNum={isGenNum} setRandomNums={setRandomNums} />
-      <Controls setIsGenNum={setIsGenNum} isGenNum={isGenNum} setRandomNums={setRandomNums} randomNums={randomNums}/>
+      {numbers.map((number) => (
+        <Number key={number.key} bgColour={number.bgColour} /> 
+      ))}
     </div>
   );
 }
 
 export default App; 
+//Math.floor(Math.random() *16777215).toString(16)
+
