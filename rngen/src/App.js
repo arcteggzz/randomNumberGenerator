@@ -4,19 +4,27 @@ import {useEffect, useState } from 'react';
 
 
 function App() {
-
   const [numbers, setNumbers] = useState([]);
+
   useEffect(()=>{
-    setTimeout(()=>{setNumbers(currentArray => [...currentArray, {id: numbers.length, hexCode:Math.floor(Math.random()*16777215).toString(16)}])}, 100);
+    setTimeout(()=>{setNumbers(currentArray => [...currentArray, {
+      key: numbers.length,
+      bgColour: `rgb(
+        ${Math.floor(Math.random() * 257)},
+        ${Math.floor(Math.random() * 257)},
+        ${Math.floor(Math.random() * 257)})`,
+      }])}, 250)
   })
 
   return (
     <div className="App">
-      {numbers.map((id) => (
-        <Number key={id.id} num={id.id} hexCode={id.hexCode} /> 
+      {numbers.map((number) => (
+        <Number key={number.key} bgColour={number.bgColour} /> 
       ))}
     </div>
   );
 }
 
 export default App; 
+//Math.floor(Math.random() *16777215).toString(16)
+
